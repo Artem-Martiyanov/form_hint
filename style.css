@@ -1,0 +1,39 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(0,0,0,0.05);
+    margin: 0 0 100px 0;
+}
+.page__header{
+    margin-top: 0;
+    text-align: center;
+    background-color: lightsteelblue;
+    line-height: 2;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.element{
+    display: flex;
+    border-bottom: 3px solid rgba(0,0,0,0.2);
+    padding: 20px;
+}
+
+
+.element__inner{
+    flex: 1;
+}
+.element__inner {
+    padding-left: 10px;
+}
+code{
+    flex: 2;
+    background-color: #fff;
+}
+

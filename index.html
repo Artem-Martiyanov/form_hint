@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Hint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+<h1 class="page__header">Памятка по тегу &#60form&#62</h1>
+<!--
+method="get" - отправка небольшого кол-ва данных, видно в строке браузера
+method="post" - отправка большого кол-ва данных, файлов и т.д. через запрос бразуера
+(скрытный метод отправки)
+method="dialog" - диалоговое окно?
+
+enctype - атрибут для передачи файлов
+ -->
+<div class="container">
+<form action="#" method="post" enctype="multipart/form-data" oninput="heightOutput.value = userHeight.value">
+
+    <!--
+        name - имя поля
+        value - значение
+        На сервер передастся пара "name: value"
+        <input> - inline-block
+    -->
+    <!-- text:autocomplete="on" (по умолчанию) -->
+    <div class="element">
+        <code>
+            //required - атрибут (обязательно для заполнения) <br>
+            &#60input type="text" name="username" value="Artem" required tabindex="1" placeholder="Введите имя"&#62
+        </code>
+        <div class="element__inner">
+            <input type="text" name="username" value="Artem" required tabindex="1" placeholder="Введите имя">
+        </div>
+    </div>
+
+    <!-- text:autocomplete="off" -->
+    <div class="element">
+        <code>
+            //autocomplete="off" - Выключает автозаполнение форм (браузер больше не предлагает логины и пароли) <br>
+            &#60input type="text" name="username" required placeholder="Введите имя" autocomplete="off"&#62
+        </code>
+        <div class="element__inner">
+            <input type="text" name="username" required placeholder="Введите имя" autocomplete="off">
+        </div>
+    </div>
+
+    <!-- password -->
+    <div class="element">
+        <code>
+            &#60input type="password" name="userpass" required tabindex="2" placeholder="Введите пароль"&#62
+        </code>
+        <div class="element__inner">
+            <input type="password" name="userpass" required tabindex="2" placeholder="Введите пароль">
+        </div>
+    </div>
+
+    <!-- tel -->
+    <div class="element">
+        <code>
+            <!-- Тег для ввода телефона, поменяет клавиатуру на телефоне под ввод телефона -->
+            &#60input type="tel" name="usertel" tabindex="3" placeholder="x-xxx-xxx-xx-xx"
+            pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"&#62
+        </code>
+        <div class="element__inner">
+            <input type="tel" name="usertel" tabindex="3"
+                   placeholder="x-xxx-xxx-xx-xx"
+                   pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+        </div>
+    </div>
+
+    <!-- fieldset -->
+    <div class="element">
+        <code>
+            &#60fieldset&#62
+            <br>
+                &#160&#160&#60legend&#62Fieldset&#60/legend&#62
+            <br>
+                &#160&#160&#60input type="text" name="login" placeholder="Введите логин"&#62
+            <br>
+                &#160&#160&#60br&#62&#60br&#62
+            <br>
+                &#160&#160&#60input type="password" name="password" placeholder="Введите пароль"&#62
+            <br>
+                &#160&#160&#60br&#60&#62br&#62
+            <br>
+                &#160&#160&#60input type="tel" name="telephone" placeholder="Введите номер телефона"&#62
+            <br>
+            &#60/fieldset&#62
+        </code>
+        <div class="element__inner">
+            <fieldset>
+                <legend>Fieldset</legend>
+                <input type="text" name="login" placeholder="Введите логин">
+                <br><br>
+                <input type="password" name="password" placeholder="Введите пароль">
+                <br><br>
+                <input type="tel" name="telephone" placeholder="Введите номер телефона">
+            </fieldset>
+        </div>
+
+    </div>
+
+    <!-- email -->
+    <div class="element">
+        <code>
+            //autofocus - При загрузке страницы сообщает браузеру, в какое поле <br>
+            //установить курсор. Этот атрибут должен быть ТОЛЬКО ОДИН на странице
+            <br> <br>
+            &#60input type="email" name="useremail" placeholder="Введите Email" autofocus&#62
+        </code>
+        <div class="element__inner">
+            <input type="email" name="useremail" placeholder="Введите Email" autofocus>
+        </div>
+    </div>
+
+    <!-- number -->
+    <div class="element">
+        <code>
+            &#60input type="number" name="userWeight" step="5" min="0" placeholder="Введите ваш вес"&#62
+        </code>
+        <div class="element__inner">
+            <input type="number" name="userWeight" step="5" min="0" placeholder="Введите ваш вес">
+        </div>
+    </div>
+
+    <!-- hidden -->
+    <div class="element">
+        <code>
+            //Это скрытое поле. Его используют, когда в форме нужно отправить <br>
+            //какие-то дополнительные служебные данные, которые не вводятся пользователем. <br>
+            //Например, это могут быть реквизиты заказа или номер пользователя в форме оплаты.
+            <br><br>
+            &#60input type="hidden" name="articleID" value="Заполняется с помощью JS"&#62
+        </code>
+        <div class="element__inner">
+            <input type="hidden" name="articleID" value="Заполняется с помощью JS">
+        </div>
+    </div>
+
+    <!-- text:disabled -->
+    <div class="element">
+        <code>
+            &#60input type="text" name="userID" value="123" disabled&#62
+        </code>
+        <div class="element__inner">
+            <input type="text" name="userID" value="123" disabled>
+        </div>
+    </div>
+
+    <!-- text:readonly -->
+    <div class="element">
+        <code>
+            &#60input type="text" name="userID" value="123" readonly&#62
+        </code>
+        <div class="element__inner">
+            <input type="text" name="userID" value="123" readonly>
+        </div>
+    </div>
+
+    <!-- range -->
+    <div class="element">
+        <code>
+            // Тег &#60output&#62 представляет собой область, куда выводятся какие-либо <br>
+            // результаты вычислений, обычно полученные при помощи JS <br>
+            // тегу &#60form&#62 необходимо добавить <br>
+            // oninput="heightOutput.value = userHeight.value"
+            <br>
+            <br>
+            0 &#60input type="range" name="userHeight" min="0" max="250"  value="0"&#62 250
+            <br>
+            &#60br&#62&#60br&#62
+            <br>
+            &#60output name="heightOutput"&#62 0 &#60/output&#62
+        </code>
+        <div class="element__inner">
+            0 <input type="range" name="userHeight" min="0" max="250" value="0"> 250
+            <br><br>
+            <output name="heightOutput"> 0 </output>
+        </div>
+    </div>
+
+    <!-- radio -->
+    <div class="element">
+        <!--  name у radio должен быть одинковый, а value разные  -->
+        <code>
+            &#60input type="radio" name="beer" value="light" id="light_beer"&#62
+            <br>
+            &#60label for="light_beer"&#62Светлое&#60/label&#62
+            <br>
+            <br>
+            &#60label"&#62
+            <br>
+            &#160&#160&#60input type="radio" name="beer" value="dark" checked&#62 Темное
+            <br>
+            &#60/label&#62
+        </code>
+
+        <div class="element__inner">
+            <input type="radio" name="beer" value="light" id="light_beer">
+            <label for="light_beer">Светлое</label>
+
+            <label>
+                <input type="radio" name="beer" value="dark" checked> Темное
+            </label>
+        </div>
+        <!-- <label> связывается с полем по id или если обернуть поле в <label> -->
+        <!-- Оборачивание <input> в <label> позволяет устанавливать фокус в <input>
+         при клике на текст тега <label> -->
+    </div>
+
+    <!-- checkbox -->
+    <div class="element">
+        <code>
+            &#60input type="checkbox" name="lexus" value="yes" id="lexus"&#62
+            <br>
+            &#60label for="lexus"&#62Лексус&#60/label&#62
+            <br>
+            <br>
+            &#60input type="checkbox" name="toyota" value="yes" id="toyota"&#62
+            &#60label for="toyota"&#62Тойота&#60/label&#62
+        </code>
+        <div class="element__inner">
+            <input type="checkbox" name="lexus" value="yes" id="lexus">
+            <label for="lexus">Лексус</label>
+
+            <input type="checkbox" name="toyota" value="yes" id="toyota">
+            <label for="toyota">Тойота</label>
+        </div>
+    </div>
+
+    <!-- file -->
+    <div class="element">
+        <code>
+            &#60input type="file" name="photo"&#62
+        </code>
+        <div class="element__inner">
+            <input type="file" name="photo">
+        </div>
+    </div>
+
+    <!-- image -->
+    <div class="element">
+        <code>
+            //При нажатии на картинку, данные формы отправляются на сервер <br>
+            //Аналог &#60input type="submit"&#62, но также на сервер <br>
+            //передаются координаты курсора в момент нажатия
+            <br>
+            <br>
+            &#60input type="image" alt="image" src="img/icon.png" width="30"&#62
+        </code>
+        <div class="element__inner">
+            <input type="image" alt="image" src="img/icon.png" width="30">
+        </div>
+    </div>
+
+    <!-- input:reset -->
+    <div class="element">
+        <code>
+            //Сбрасывает все введенные пользователем значения в поля до "по-умолчанию"
+            <br>
+            &#60input type="reset" value="Инпут сбросить"&#62
+        </code>
+        <div class="element__inner">
+            <input type="reset" value="Инпут сбросить">
+        </div>
+    </div>
+
+    <!-- button:reset -->
+    <div class="element">
+        <code>
+            //Сбрасывает все введенные пользователем значения в поля до "по-умолчанию"
+            <br>
+            &#60button type="reset"&#62Кнопка сбросить&#60/button&#62
+        </code>
+        <div class="element__inner">
+            <button type="reset">Кнопка сбросить</button>
+        </div>
+    </div>
+
+    <!-- input:submit -->
+    <div class="element">
+        <code>
+            //Отправляет данные формы на сервер
+            <br>
+            &#60input type="submit" value="Отправить"&#62
+        </code>
+        <div class="element__inner">
+            <input type="submit" value="Отправить">
+        </div>
+    </div>
+
+    <!-- input:button -->
+    <div class="element">
+        <code>
+            //Кнопка, функционал которой задается с помощью JS
+            <br>
+            &#60input type="button" value="Кнопка" id="btn"&#62
+        </code>
+        <div class="element__inner">
+            <input type="button" value="Кнопка" id="btn">
+        </div>
+    </div>
+
+    <!-- color -->
+    <div class="element">
+        <code>
+            &#60input type="color" name="userColor" value="#ffffff"&#62
+            <br>
+            &#60input type="color" name="userColor" value="#ff0000"&#62
+            <br>
+            &#60input type="color"&#62
+        </code>
+        <div class="element__inner">
+            <input type="color" name="userColor" value="#ffffff">
+            <input type="color" name="userColor" value="#ff0000">
+            <input type="color" name="userColor">
+        </div>
+    </div>
+
+    <!-- date -->
+    <div class="element">
+        <code>
+            &#60input type="date" name="userDate" step="2"&#62
+            <br>
+            &#60input type="date" name="userDate" value="1999-05-13"&#62
+            <br>
+            &#60input type="date" name="userDate" min="1999-05-13" max="2000-05-13"&#62
+        </code>
+        <div class="element__inner">
+            <input type="date" name="userDate" step="2">
+            <input type="date" name="userDate" value="1999-05-13">
+            <input type="date" name="userDate" min="1999-05-13" max="2000-05-13">
+        </div>
+    </div>
+
+    <!-- datetime-local -->
+    <div class="element">
+        <code>
+            &#60input type="datetime-local" name="userDateTime"&#62 <br>
+            &#60input type="datetime-local" name="userDateTime" value="2012-12-10T12:30"&#62
+        </code>
+        <div class="element__inner">
+            <input type="datetime-local" name="userDateTime">
+            <input type="datetime-local" name="userDateTime" value="2012-12-10T12:30">
+        </div>
+    </div>
+
+    <!-- time -->
+    <div class="element">
+        <code>
+            &#60input type="time" name="userTime"&#62 <br>
+            &#60input type="time" name="userTime" value="12:30"&#62
+        </code>
+        <div class="element__inner">
+            <input type="time" name="userTime">
+            <input type="time" name="userTime" value="12:30">
+        </div>
+    </div>
+
+    <!-- month, week -->
+    <div class="element">
+        <code>
+            &#60input type="month" name="userMonth"&#62
+            <br>
+            &#60input type="month" name="userMonth" value="2022-05"&#62
+            <br>
+            <br>
+            &#60input type="week" name="userWeek"&#62
+            <br>
+            &#60input type="week" name="userWeek" value="2022-W28"&#62
+
+        </code>
+        <div class="element__inner">
+            <input type="month" name="userMonth">
+            <input type="month" name="userMonth" value="2022-05">
+
+            <input type="week" name="userWeek">
+            <input type="week" name="userWeek" value="2022-W28">
+        </div>
+    </div>
+
+    <!-- search -->
+    <div class="element">
+        <code>
+            &#60input type="search" name="search" placeholder="Найти..."&#62
+        </code>
+        <div class="element__inner">
+            <input type="search" name="search" placeholder="Найти...">
+        </div>
+    </div>
+
+    <!-- url -->
+    <div class="element">
+        <code>
+            &#60input type="url" name="url" placeholder="Введите ссылку"&#62
+        </code>
+        <div class="element__inner">
+            <input type="url" name="url" placeholder="Введите ссылку">
+        </div>
+    </div>
+
+    <!-- textarea -->
+    <div class="element">
+        <code>
+            &#60textarea name="textarea" cols="20" rows="5" placeholder="Введите какой-нибудь текст"&#62&#60/textarea&#62
+        </code>
+        <div class="element__inner">
+            <textarea name="textarea" cols="20" rows="5" placeholder="Введите какой-нибудь текст"></textarea>
+        </div>
+    </div>
+
+    <!-- select -->
+    <div class="element">
+        <code>
+            &#60select name="pets"&#62
+                <br>
+                &#160&#160&#60optgroup label="Домашние животные"&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="cat"&#62Кошка&#60/option&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="dog"&#62Собака&#60/option&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="mouse"&#62Мышка&#60/option&#62
+                    <br>
+                &#160&#160&#60/optgroup&#62
+                <br>
+                &#160&#160&#60optgroup label="Не совсем домашние животные"&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="elephant"&#62Слон&#60/option&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="giraffe"&#62Жираф&#60/option&#62
+                    <br>
+                    &#160&#160&#160&#160&#60option value="hippo"&#62Бегемот&#60/option&#62
+                    <br>
+                &#160&#160&#60/optgroup&#62
+                <br>
+            &#60/select&#62
+        </code>
+        <div class="element__inner">
+            <select name="pets">
+                <optgroup label="Домашние животные">
+                    <option value="cat">Кошка</option>
+                    <option value="dog">Собака</option>
+                    <option value="mouse">Мышка</option>
+                </optgroup>
+                <optgroup label="Не совсем домашние животные">
+                    <option value="elephant">Слон</option>
+                    <option value="giraffe">Жираф</option>
+                    <option value="hippo">Бегемот</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <!-- select:multiple -->
+    <div class="element">
+        <code>
+            //При отправке данных мультиселекта на сервер с PHP после
+            <br>
+            //имени в значении атрибута name ставятся символы квадратных скобок [].
+            <br>
+            //Это необязательное требование для имени мультиселекта, а нужно только
+            <br>
+            //для корректной обработки данных в PHP.
+            <br>
+            <br>
+            &#60select name="pets[]" multiple size="5"&#62
+            <br>
+            &#160&#160&#60option value="cat"&#62Кошка&#60/option&#62
+            <br>
+            &#160&#160&#60option value="dog"&#62Собака&#60/option&#62
+            <br>
+            &#160&#160&#60option value="mouse"&#62Мышка&#60/option&#62
+            <br>
+            &#60/select&#62
+        </code>
+        <div class="element__inner">
+            <select name="pets[]" multiple size="5">
+                <option value="cat">Кошка</option>
+                <option value="dog">Собака</option>
+                <option value="mouse">Мышка</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- input:datalist (Список возможных значений) -->
+    <div class="element">
+        <code>
+            &#60input type="text" name="browser" list="browsers" placeholder="Начните вводить"&#62
+            <br>
+            &#60datalist id="browsers"&#62
+            <br>
+            &#160&#160&#60option value="Firefox">браузер&#60/option&#62
+            <br>
+            &#160&#160&#60option value="Chrome">браузер&#60/option&#62
+            <br>
+            &#160&#160&#60option value="Safari">браузер&#60/option&#62
+            <br>
+            &#60/datalist&#62
+        </code>
+        <div class="element__inner">
+            <input type="text" name="browser" list="browsers" placeholder="Начните вводить">
+            <datalist id="browsers">
+                <option value="Firefox">браузер</option>
+                <option value="Chrome">браузер</option>
+                <option value="Safari">браузер</option>
+            </datalist>
+        </div>
+    </div>
+
+</form>
+</div>
+
+<script>
+   document.getElementById('btn').addEventListener('click', function() {
+       alert('Сработал скрипт при нажатии кнопки с id="btn"');
+       });
+
+   //Это LocalStorage - позволяет сохранить данные заполнения форм, в случае перезагрузки страницы
+   if (window.localStorage) {
+       let elements = document.querySelectorAll('[name]');
+
+       for (let i = 0, length = elements.length; i < length; i++) {
+           (function(element) {
+               let name = element.getAttribute('name');
+
+               element.value = localStorage.getItem(name) || element.value;
+
+               element.onkeyup = function() {
+                   localStorage.setItem(name, element.value);
+               };
+           })(elements[i]);
+       }
+   }
+</script>
+</body>
+</html>
